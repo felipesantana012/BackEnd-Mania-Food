@@ -21,13 +21,6 @@ const cardapioSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-// const cardapioSchema = new mongoose.Schema(
-//   {
-//     cardapio: categoriaSchema,
-//   },
-//   { versionKey: false }
-// );
-
 //informando qual o nome da coleção que vai esta no banco, e os a estrtura de dados que vai ser passada
 const cardapio = mongoose.model("cardapio", cardapioSchema);
 
