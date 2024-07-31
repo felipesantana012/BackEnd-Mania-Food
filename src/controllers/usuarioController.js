@@ -45,8 +45,8 @@ class UsuarioController {
     try {
       const id = req.params.id;
 
-      const usuario = await usuario.findByIdAndUpdate(id, req.body);
-      if (!usuario) {
+      const usuarioEncontrado = await usuario.findByIdAndUpdate(id, req.body);
+      if (!usuarioEncontrado) {
         return res.status(404).json({ message: "usuario não encontrada" });
       }
       res.status(200).json({ menssagem: `Usuario Atualizado com sucesso` });
@@ -60,8 +60,8 @@ class UsuarioController {
   static async deleteUsuario(req, res) {
     try {
       const id = req.params.id;
-      const usuario = await usuario.findByIdAndDelete(id);
-      if (!usuario) {
+      const usuarioEncontrado = await usuario.findByIdAndDelete(id);
+      if (!usuarioEncontrado) {
         return res.status(404).json({ message: "usuario não encontrada" });
       }
       res.status(200).json({ menssagem: "usuario excluido com secesso." });
