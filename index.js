@@ -18,27 +18,27 @@ conexao.on("error", (erro) => {
 
 app.use(express.json());
 
-// Lista de origens permitidas
-const allowedOrigins = [
-  "https://restaurante-mania-food.vercel.app/",
-  "https://mania-food-cliente.vercel.app/",
-  "http://127.0.0.1:5501",
-  "http://127.0.0.1:5502",
-];
+// // Lista de origens permitidas
+// const allowedOrigins = [
+//   "https://restaurante-mania-food.vercel.app/",
+//   "https://mania-food-cliente.vercel.app/",
+//   "http://127.0.0.1:5501",
+//   "http://127.0.0.1:5502",
+// ];
 
-// Função personalizada para CORS
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true); // Permitir a origem
-    } else {
-      callback(new Error("ACESSO CORS NEGADO, Not allowed by CORS")); // Bloquear a origem
-    }
-  },
-  methods: "GET,PUT,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-};
-app.use(cors(corsOptions));
+// // Função personalizada para CORS
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true); // Permitir a origem
+//     } else {
+//       callback(new Error("ACESSO CORS NEGADO, Not allowed by CORS")); // Bloquear a origem
+//     }
+//   },
+//   methods: "GET,PUT,POST,DELETE",
+//   allowedHeaders: "Content-Type,Authorization",
+// };
+app.use(cors());
 
 routes(app);
 app.listen(PORT, () => {
