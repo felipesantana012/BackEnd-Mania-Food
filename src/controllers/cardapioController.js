@@ -45,23 +45,29 @@ class CardapioController {
     try {
       const id = req.params.id;
 
-      const cardapio = await cardapio.findByIdAndUpdate(id, req.body);
-      if (!cardapio) {
-        return res.status(404).json({ message: "cardapio não encontrada" });
-      }
-      res.status(200).json({ menssagem: `Cardapio Atualizado com sucesso` });
-    } catch (error) {
-      res.status(500).json({
-        menssagem: `${error.message}: Falha na Atualização do Cardapio`,
+      // Atualizar o cardápio
+      const updatedCardapio = await cardapio.findByIdAndUpdate(id, req.body, {
+        new: true,
       });
+      if (!updatedCardapio) {
+        return res.status(404).json({ message: "Cardápio não encontrado" });
+      }
+      res.status(200).json({
+        message: "Cardápio atualizado com sucesso",
+        cardapio: updatedCardapio,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: `Erro ao atualizar cardápio: ${error.message}` });
     }
   }
 
   static async deleteCardapio(req, res) {
     try {
       const id = req.params.id;
-      const cardapio = await cardapio.findByIdAndDelete(id);
-      if (!cardapio) {
+      const cardapios = await cardapio.findByIdAndDelete(id);
+      if (!cardapios) {
         return res.status(404).json({ message: "cardapio não encontrada" });
       }
       res.status(200).json({ menssagem: "Cardapio excluido com secesso." });

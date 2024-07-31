@@ -15,7 +15,7 @@ const itemSchema = new mongoose.Schema(
 
 const cardapioSchema = new mongoose.Schema(
   {
-    categoria: String,
+    categoria: { type: String },
     itens: [itemSchema],
   },
   { versionKey: false }
