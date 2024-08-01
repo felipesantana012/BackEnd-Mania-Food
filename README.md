@@ -10,3 +10,8 @@ Desafio: Desenvolva uma API REST com Node e Express que forneça os dados para o
 BackEnd tem as rotas USUÁRIO e CARDÁPIO, com métodos htpp: GET,POST,PUT,DELETE.
 Armazenando os dados no banco noSQL MongoDB, onde os dados estão sendo salvo na nuvem através do atlas.
 </p>
+<br>
+<p>Esse projeto é apenas o Back End do restaurante, onde é realizado toda logica de armazenamento e estrutura dos dados do restaurante. 
+Para mais detalhes você pode acessar o link do LinkedIn para uma publicação de explicação detalhada</p>
+<br>
+<h3>Link linkedin : </h3>https://www.linkedin.com/in/felipesantana012/
