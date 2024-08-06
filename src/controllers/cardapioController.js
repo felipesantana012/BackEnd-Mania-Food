@@ -29,37 +29,16 @@ class CardapioController {
   }
 
   static async postCardapio(req, res) {
-    const {
-      categoria,
-      nome,
-      precoOriginal,
-      descricao,
-      tipo,
-      promocaoDia,
-      img,
-    } = req.body;
-    const novoCardapio = {
-      categoria,
-      itens: [
-        {
-          nome,
-          precoOriginal,
-          descricao,
-          tipo,
-          img,
-          promocaoDia,
-        },
-      ],
-    };
+    const novoCardapio = req.body;
     try {
       const cardapioCriado = await cardapio.create(novoCardapio);
       res
         .status(201)
-        .json({ mensagem: "Criado com sucesso", cardapio: cardapioCriado });
+        .json({ menssagem: "Criado com sucesso", cardapio: cardapioCriado });
     } catch (error) {
       res
         .status(400)
-        .json({ mensagem: `${error.message} Erro ao cadastrar Cardapio` });
+        .json({ menssagem: `${error.message} Erro ao cadastrar Cardapio` });
     }
   }
 

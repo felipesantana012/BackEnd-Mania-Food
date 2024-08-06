@@ -8,6 +8,7 @@ const routes = express.Router();
 routes.get("/cardapio", CardapioController.getCardapio);
 
 routes.get("/cardapio/:id", CardapioController.getCardapioPorId);
+
 routes.post("/cardapio", CardapioController.postCardapio);
 
 routes.put("/cardapio/:id", CardapioController.putCardapio);

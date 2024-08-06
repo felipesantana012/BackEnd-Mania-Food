@@ -25,15 +25,3 @@ export const deleteImageController = (req, res) => {
   deleteImage(filePath);
   res.status(200).json({ mensagem: "Imagem deletada com sucesso" });
 };
-
-// Controller para atualizar imagem
-export const updateImageController = (req, res) => {
-  const { oldFilename } = req.params;
-  const newFile = req.file;
-
-  const oldFilePath = `/uploads/imgsCadapio/${oldFilename}`;
-  deleteImage(oldFilePath);
-
-  const newFilePath = `/uploads/imgsCadapio/${newFile.filename}`;
-  res.json({ imgPath: newFilePath });
-};
