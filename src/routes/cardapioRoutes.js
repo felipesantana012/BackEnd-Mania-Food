@@ -1,5 +1,6 @@
 import express from "express";
 import CardapioController from "../controllers/cardapioController.js";
+import upload from "../../middlewares/uploadImagens.js";
 
 const routes = express.Router();
 
@@ -7,7 +8,6 @@ const routes = express.Router();
 routes.get("/cardapio", CardapioController.getCardapio);
 
 routes.get("/cardapio/:id", CardapioController.getCardapioPorId);
-
 routes.post("/cardapio", CardapioController.postCardapio);
 
 routes.put("/cardapio/:id", CardapioController.putCardapio);

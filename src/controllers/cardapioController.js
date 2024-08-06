@@ -1,4 +1,5 @@
 import cardapio from "../models/Cardapio.js";
+import path from "path";
 
 class CardapioController {
   static async getCardapio(req, res) {
@@ -28,16 +29,37 @@ class CardapioController {
   }
 
   static async postCardapio(req, res) {
-    const novoCardapio = req.body;
+    const {
+      categoria,
+      nome,
+      precoOriginal,
+      descricao,
+      tipo,
+      promocaoDia,
+      img,
+    } = req.body;
+    const novoCardapio = {
+      categoria,
+      itens: [
+        {
+          nome,
+          precoOriginal,
+          descricao,
+          tipo,
+          img,
+          promocaoDia,
+        },
+      ],
+    };
     try {
       const cardapioCriado = await cardapio.create(novoCardapio);
       res
         .status(201)
-        .json({ menssagem: "Criado com sucesso", cardapio: cardapioCriado });
+        .json({ mensagem: "Criado com sucesso", cardapio: cardapioCriado });
     } catch (error) {
       res
         .status(400)
-        .json({ menssagem: `${error.message} Erro ao cadastrar Cardapio` });
+        .json({ mensagem: `${error.message} Erro ao cadastrar Cardapio` });
     }
   }
 
